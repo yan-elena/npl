@@ -117,6 +117,7 @@ TOKEN : {
 |  <SCOPE     : "scope">
 |  <NORM      : "norm">
 |  <SANCTION  : "sanction-rule">
+|  <ADAPTIVE  : "adaptive-rule">
 |  <FAIL      : "fail">
 |  <IF        : "if">
 |  <FULFILLED   : "fulfilled">
@@ -219,6 +220,20 @@ ISanctionRule sanction_rule() :
   )
                            { return n; }
 }*/
+
+IAdaptiveRule adaptive_rule():
+{ Literal d; Literal e; Object b = null; Token id; Term t; List args = new ArrayList(); }
+{ <ADAPTIVE> id = <ATOM>
+//  [ ":"
+//    b = log_expr() // activation condition?
+//  ]
+  "->"
+  d = literal()
+  "->"
+  e = literal()
+  { return nFac.createAdaptiveRule(id.image, d, e);}
+}
+
 
 void norm_sanctions(INorm n) :
 { Literal h; }

@@ -9,4 +9,9 @@ public interface INPLFactory {
     INorm parseNorm(String norm, DynamicFactsProvider dfp) throws Exception;
 
     default ISanctionRule createSanctionRule(Literal trigger, LogicalFormula condition, Literal consequence) throws ParseException { return null; }
+
+//    default IAdaptiveRule createAdaptiveRule(String id, LogicalFormula condition, Literal deliberateConsequence, Literal executeConsequence) throws ParseException {return null; }
+
+    default IAdaptiveRule createAdaptiveRule(String id, Literal deliberateConsequence, Literal executeConsequence) throws ParseException {return null; }
+
 }
