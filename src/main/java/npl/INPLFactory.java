@@ -3,7 +3,9 @@ package npl;
 import jason.asSyntax.Literal;
 import jason.asSyntax.LogicalFormula;
 import npl.parser.ParseException;
+import npla.IAdaptiveRule;
 
+//todo: decorator nplafactory
 public interface INPLFactory {
     INorm createNorm(String id, Literal consequence, LogicalFormula activationCondition);
     INorm parseNorm(String norm, DynamicFactsProvider dfp) throws Exception;

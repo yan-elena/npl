@@ -1,7 +1,6 @@
-package npl;
+package npla;
 
 import jason.asSyntax.Literal;
-import jason.asSyntax.LogicalFormula;
 
 public interface IAdaptiveRule {
 

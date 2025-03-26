@@ -1,4 +1,4 @@
-package npl;
+package npla;
 
 import jason.asSyntax.Literal;
 

@@ -7,6 +7,7 @@ import jason.asSemantics.Unifier;
 import jason.asSyntax.*;
 import jason.util.ToDOM;
 import npl.NormInstance.State;
+import npla.IAdaptiveRule;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -26,6 +27,8 @@ public class NPLInterpreter implements ToDOM, DynamicFactsProvider {
     private Map<String, INorm> regimentedNorms = null; // norms with failure consequence
     private Map<String, INorm> regulativeNorms = null; // norms with obligation, permission, prohibition consequence
     private List<ISanctionRule> sanctionRules = null;
+
+    private Map<String, IAdaptiveRule> adaptiveRules = null; // adaptive rules
 
     protected Object syncTransState = new Object();
 
@@ -57,6 +60,7 @@ public class NPLInterpreter implements ToDOM, DynamicFactsProvider {
         regimentedNorms = new HashMap<>();
         regulativeNorms = new HashMap<>();
         sanctionRules   = new ArrayList<>();
+        adaptiveRules = new HashMap<>();
         //clearFacts();
         if (oblTransitions == null)
             setStateManager(new StateTransitionsThread(this,1000));
