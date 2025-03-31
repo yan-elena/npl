@@ -2,9 +2,6 @@
 
 scope main {
 
-    // some facts
-    vl(20).
-
     // alice has 3 seconds to achieve b(0), or else, sanction!
     norm n1: vl(X) & X > 5
        -> obligation(alice,n1, b(0), `3 seconds`)

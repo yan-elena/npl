@@ -40,6 +40,7 @@ sourceSets {
             srcDir 'src/agt'
             srcDir 'src/org'
             srcDir 'src/int'
+            srcDir 'src/npl'
             srcDir 'src/java'
         }
         resources {
@@ -57,6 +58,11 @@ task run (type: JavaExec, dependsOn: 'classes') {
     mainClass = 'jacamo.infra.JaCaMoLauncher'
     args 'nagent.jcm'
     // jvmArgs '-Xss15m'
+    classpath sourceSets.main.runtimeClasspath
+}
+
+task exAdaptNorm (type: JavaExec, dependsOn: classes) {
+    mainClass = 'ExampleAdaptNorm'
     classpath sourceSets.main.runtimeClasspath
 }
 

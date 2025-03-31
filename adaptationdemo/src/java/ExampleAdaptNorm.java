@@ -1,5 +1,4 @@
-package adaptation;
-
+import adaptation.NPLAInterpreter;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
 import npl.NormativeProgram;
@@ -13,7 +12,7 @@ import java.io.FileInputStream;
  */
 public class ExampleAdaptNorm {
     NormativeProgram  np          = new NormativeProgram(); // where the parser will place the result of parsing (norms, rules, ....)
-    NPLAInterpreter    interpreter = new NPLAInterpreter(); // the NPL interpreter
+    NPLAInterpreter interpreter = new NPLAInterpreter(); // the NPL interpreter
 
     public static void main(String[] args) throws Exception {
         new ExampleAdaptNorm().run();
@@ -21,7 +20,7 @@ public class ExampleAdaptNorm {
 
     public void run() throws Exception {
         // parsing
-        nplp parser = new nplp(new FileInputStream("examples/adaptation/e4.npl"));
+        nplp parser = new nplp(new FileInputStream("src/npl/ex1.npl"));
         parser.program(np, null);
 
         // loads the program into the interpreter

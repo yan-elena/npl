@@ -1,5 +1,3 @@
-package adaptation;
-
 import jason.asSyntax.Literal;
 import jason.asSyntax.Structure;
 import npl.NPLInterpreter;
