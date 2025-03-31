@@ -1,13 +1,23 @@
-extra(150).
-
 !start.
 
-+!start <- +vl(20). // by adding this belief, the NPL will trigger an obligation
++!start
+    <-  +vl(20) // by adding this belief, the NPL will trigger an obligation
+        .
 
-+unfulfilled(O) <- .print("Unfulfilled ",O).
++!adapt
+    <-  .print("Adapt norms...");
+        adaptation.add_norm("n2", obligation(bob,n2,apply_fine(A,X*C),false), sanction(A,fine(X)) & extra(C));
+        .print("Added new norm n2");
+        +extra(150).
 
-+sanction(Ag,remove_from_systems)
-   <- .println("**** I am implementing the sanction for ",Ag," ****").
++unfulfilled(O)
+    <-  .print("Unfulfilled ",O);
+        .wait(2000);
+        !adapt;
+        .
+
++active(O)
+    <-  .print("Active ", O).
 
 +sanction(Ag,Sanction)[norm(NormId,Event)]
-   <- .print("Sanction ",Sanction," for ",Ag," created from norm ", NormId, " that is ",Event).
+    <-  .print("Sanction ",Sanction," for ",Ag," created from norm ", NormId, " that is ",Event).
