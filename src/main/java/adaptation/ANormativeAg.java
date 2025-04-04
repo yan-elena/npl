@@ -26,13 +26,19 @@ public class ANormativeAg extends NormativeAg {
         }
     }
 
-    /**
-     * Add a new norm specification.
-     * @param id the id of the norm
-     * @param consequence the failure or deontic consequence of the norm
-     * @param activation the activation condition of the norm
-     */
-    public void addNorm(String id, Literal consequence, LogicalFormula activation) {
-        ((NPLAInterpreter) this.interpreter).addNorm(id, consequence, activation);
+    public NPLAInterpreter getNPLAInterpreter() {
+        return (NPLAInterpreter) this.interpreter;
     }
+
+//    /**
+//     * Add a new norm specification.
+//     * @param id the id of the norm
+//     * @param consequence the failure or deontic consequence of the norm
+//     * @param activation the activation condition of the norm
+//     */
+//    public void addNorm(String id, Literal consequence, LogicalFormula activation) {
+//        ((NPLAInterpreter) this.interpreter).addNorm(id, consequence, activation);
+//    }
+//
+//    public void modifyNorm()
 }
