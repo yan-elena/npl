@@ -17,7 +17,7 @@ public class NPLAInterpreter extends NPLInterpreter {
     }
 
     /**
-     * Add a new norm in the interpreter.
+     * Adds a new norm in the interpreter.
      * @param id the id of the norm
      * @param consequence the failure or deontic consequence of the norm
      * @param activation the activation condition of the norm
@@ -26,4 +26,41 @@ public class NPLAInterpreter extends NPLInterpreter {
         final INorm norm = this.nplFactory.createNorm(id, consequence, activation);
         super.addNorm(norm);
     }
+
+    /**
+     * Modifies an existing norm with new parameters in the interpreter.
+     * @param id the id of the existing norm
+     * @param consequence the failure or deontic consequence of the norm
+     * @param activation the activation condition of the norm
+     * @throws NullPointerException  if the specified id is not present in the set of norms
+     */
+    public void modifyNorm(String id, Literal consequence, LogicalFormula activation) {
+        final INorm norm = this.nplFactory.createNorm(id, consequence, activation);
+        if (regulativeNorms.get(id) != null) {
+            regulativeNorms.replace(id, norm);
+        } else {
+            throw new NullPointerException();
+        }
+        //
+    }
+
+    /**
+     * Removes the norm with the given id
+     * @param id the id of the norm to be removed
+     */
+    public void removeNorm(String id) {
+        regulativeNorms.remove(id);
+    }
+
+//    todo: change the norm instance
+//    /**
+//     * Add a new norm instance in the interpreter.
+//     * @param id the id of the norm
+//     * @param consequence the failure or deontic consequence of the norm
+//     * @param activation the activation condition of the norm
+//     */
+//    public void addNormInstance(EventType status, String id, Unifier unifier) {
+//        final INorm norm = getNorm(id);
+//        super.notifier.add(status, new NormInstance(getConsequence(), unifier, norm));
+//    }
 }

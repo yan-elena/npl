@@ -23,9 +23,9 @@ import java.util.logging.Logger;
 public class NPLInterpreter implements ToDOM, DynamicFactsProvider {
 
     private Agent ag = null; // use a Jason agent to store the facts (BB)
-    private Map<String, INorm> regimentedNorms = null; // norms with failure consequence
-    private Map<String, INorm> regulativeNorms = null; // norms with obligation, permission, prohibition consequence
-    private List<ISanctionRule> sanctionRules = null;
+    protected Map<String, INorm> regimentedNorms = null; // norms with failure consequence
+    protected Map<String, INorm> regulativeNorms = null; // norms with obligation, permission, prohibition consequence
+    protected List<ISanctionRule> sanctionRules = null;
 
     protected Object syncTransState = new Object();
 
