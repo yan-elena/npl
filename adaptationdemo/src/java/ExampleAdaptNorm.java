@@ -56,6 +56,7 @@ public class ExampleAdaptNorm {
             interpreter.verifyNorms();
         }
 
+
         // add a fact extra -- obligation for bob start to be created
         interpreter.addFact(ASSyntax.parseLiteral("extra(10)"));
 
@@ -63,5 +64,8 @@ public class ExampleAdaptNorm {
             Thread.sleep(2000);
             interpreter.verifyNorms();
         }
+
+        System.out.println("**INTERPRETER FACTS:**\\ " + interpreter.getFacts());
+
     }
 }
